@@ -88,7 +88,7 @@ for i in range(len(weights)):
 		elif response.status_code == 408:
 			print(color.red + "[✗] " + name +" | (408) Request time out!")
 		else:
-			print(color.red + "[✗]  " + name +" | (" + response.status_code + ") There's a problem.")
+			print(color.red + "[✗]  " + name +" | (" + str(response.status_code) + ") There's a problem.")
 		count += 1
 		
 print(color.blue + "[!] Results: Successfully downloaded " + color.green + str(count_d) + color.blue + "files, among " + str(count) + " searches.")
