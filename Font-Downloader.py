@@ -1,4 +1,5 @@
 import requests
+import os
 #Color for texts
 class color:
 	red = "\33[91m"
@@ -10,7 +11,7 @@ class color:
 	
 #App info
 print(color.purple + "App name:  " + color.reset + "Font Downloader")
-print(color.purple + "Version:   " + color.reset + "1.0")
+print(color.purple + "Version:   " + color.reset + "1.1")
 print(color.purple + "Developer: " + color.reset + "hamid0740")
 print(color.purple + "GitHub:    " + color.reset + "https://github.com/hamid0740/Font-Downloader" + "\n")
 
@@ -63,6 +64,13 @@ if weights_case.lower() == "all":
 if "s" not in weights_case.lower() and "l" not in weights_case.lower() and "u" not in weights_case.lower():
 	weights = weights_standard
 
+font_name = main_url.split("/")[-1]
+if font_name[-1] == "-" or font_name[-1] == "_" or font_name[-1] == " ":
+	font_name = font_name[:-1]
+if not os.path.exists(font_name):
+	os.makedirs(font_name)
+count = 0
+count_d = 0
 for i in range(len(weights)):
 	for j in range(len(formats)):
 		url = main_url + weights[i] + "." + formats[j]
@@ -70,13 +78,17 @@ for i in range(len(weights)):
 		response = requests.head(url)
 		if response.status_code == 200:
 			request = requests.get(url, allow_redirects=True)
-			open(name, 'wb').write(request.content)
+			open(font_name + "/" + name, 'wb').write(request.content)
 			print(color.green + "[✓] " + name +" | Downloaded successfully!")
+			count_d += 1
 		elif response.status_code == 403:
-			print(color.red + "[✗] " + name +" | Access denied!")
+			print(color.red + "[✗] " + name +" | (403) Access denied!")
 		elif response.status_code == 404:
-			print(color.red + "[✗] " + name +" | Not found!")
+			print(color.red + "[✗] " + name +" | (404) Not found!")
 		elif response.status_code == 408:
-			print(color.red + "[✗] " + name +" | Request time out!")
+			print(color.red + "[✗] " + name +" | (408) Request time out!")
 		else:
-			print(color.red + "[✗]  " + name +" | There's a problem.")
+			print(color.red + "[✗]  " + name +" | (" + response.status_code + ") There's a problem.")
+		count += 1
+		
+print(color.blue + "[!] Results: Successfully downloaded " + color.green + str(count_d) + color.blue + "files, among " + str(count) + " searches.")
