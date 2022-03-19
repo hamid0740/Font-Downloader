@@ -11,7 +11,7 @@ class color:
 	
 #App info
 print(color.purple + "App name:  " + color.reset + "Font Downloader")
-print(color.purple + "Version:   " + color.reset + "1.1")
+print(color.purple + "Version:   " + color.reset + "1.2 beta")
 print(color.purple + "Developer: " + color.reset + "hamid0740")
 print(color.purple + "GitHub:    " + color.reset + "https://github.com/hamid0740/Font-Downloader" + "\n")
 
@@ -71,6 +71,27 @@ if not os.path.exists(font_name):
 	os.makedirs(font_name)
 count = 0
 count_d = 0
+for j in range(len(formats)):
+	if main_url[-1] == "-" or main_url[-1] == "_" or main_url[-1] == " ":
+		url = main_url[:-1] + "." + formats[j]
+	else:
+		url = main_url + "." + formats[j]
+	name = url.split("/")[len(url.split("/")) - 1]
+	response = requests.head(url)
+	if response.status_code == 200:
+		request = requests.get(url, allow_redirects=True)
+		open(font_name + "/" + name, 'wb').write(request.content)
+		print(color.green + "[✓] " + name +" | Downloaded successfully!")
+		count_d += 1
+	elif response.status_code == 403:
+		print(color.red + "[✗] " + name +" | (403) Access denied!")
+	elif response.status_code == 404:
+		print(color.red + "[✗] " + name +" | (404) Not found!")
+	elif response.status_code == 408:
+		print(color.red + "[✗] " + name +" | (408) Request time out!")
+	else:
+		print(color.red + "[✗]  " + name +" | (" + str(response.status_code) + ") There's a problem.")
+	count += 1
 for i in range(len(weights)):
 	for j in range(len(formats)):
 		url = main_url + weights[i] + "." + formats[j]
@@ -90,5 +111,6 @@ for i in range(len(weights)):
 		else:
 			print(color.red + "[✗]  " + name +" | (" + str(response.status_code) + ") There's a problem.")
 		count += 1
+
 		
-print(color.blue + "[!] Results: Successfully downloaded " + color.green + str(count_d) + color.blue + "files, among " + str(count) + " searches.")
+print(color.blue + "[!] Results: Successfully downloaded " + color.green + str(count_d) + " files" + color.blue + ", after inspecting " + str(count) + " files.")
