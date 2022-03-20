@@ -1,5 +1,6 @@
 import requests
 import os
+import time
 #Color for texts
 class color:
 	red = "\33[91m"
@@ -11,7 +12,7 @@ class color:
 	
 #App info
 print(color.purple + "App name:  " + color.reset + "Font Downloader")
-print(color.purple + "Version:   " + color.reset + "1.2 beta")
+print(color.purple + "Version:   " + color.reset + "1.3")
 print(color.purple + "Developer: " + color.reset + "hamid0740")
 print(color.purple + "GitHub:    " + color.reset + "https://github.com/hamid0740/Font-Downloader" + "\n")
 
@@ -53,36 +54,36 @@ main_url = input(color.yellow + "Enter the font file URL without weight name and
 print(color.purple + "\n's' for Standard case (81 weight names)\n" + "'l' for Lower case (49 weight names)\n" + "'u' for Upper case (49 weight names)\n" + "'all' for All cases (179 weight names)\n" + color.blue + "You can combine letters for combined cases. like 'lu' to have Lower and Upper cases.")
 weights_case = input(color.yellow + "As you've inspected font URLs, how is their weight name case? " + color.reset)
 weights = []
-if "s" in weights_case.lower():
-	weights += weights_standard
-if "l" in weights_case.lower():
-	weights += weights_lower
-if "u" in weights_case.lower():
-	weights += weights_upper
-if weights_case.lower() == "all":
+if "all" in weights_case.lower():
 	weights = weights_standard + weights_lower + weights_upper
-if "s" not in weights_case.lower() and "l" not in weights_case.lower() and "u" not in weights_case.lower():
+if "s" in weights_case.lower() and not "all" in weights_case.lower():
+	weights += weights_standard
+if "l" in weights_case.lower() and not "all" in weights_case.lower():
+	weights += weights_lower
+if "u" in weights_case.lower() and not "all" in weights_case.lower():
+	weights += weights_upper
+if "s" not in weights_case.lower() and "l" not in weights_case.lower() and "u" not in weights_case.lower() and not "all" in weights_case.lower():
 	weights = weights_standard
 
-font_name = main_url.split("/")[-1]
-if font_name[-1] == "-" or font_name[-1] == "_" or font_name[-1] == " ":
-	font_name = font_name[:-1]
-if not os.path.exists(font_name):
-	os.makedirs(font_name)
+#Download function
 count = 0
 count_d = 0
-for j in range(len(formats)):
-	if main_url[-1] == "-" or main_url[-1] == "_" or main_url[-1] == " ":
-		url = main_url[:-1] + "." + formats[j]
-	else:
-		url = main_url + "." + formats[j]
+def dl(url):
+	global count
+	global count_d
 	name = url.split("/")[len(url.split("/")) - 1]
 	response = requests.head(url)
+	if not os.path.exists(font_name + "/" + font_name + "-Links.txt"):
+		open(font_name + "/" + font_name + "-Links.txt", "a").write("")
 	if response.status_code == 200:
-		request = requests.get(url, allow_redirects=True)
-		open(font_name + "/" + name, 'wb').write(request.content)
-		print(color.green + "[✓] " + name +" | Downloaded successfully!")
-		count_d += 1
+		if not url.lower() in open(font_name + "/" + font_name + "-Links.txt").read().lower():
+			request = requests.get(url, allow_redirects = True)
+			open(font_name + "/" + name, 'wb').write(request.content)
+			print(color.green + "[✓] " + name +" | Downloaded!")
+			open(font_name + "/" + font_name + "-Links.txt", "a").write(url + "\n")
+			count_d += 1
+		else:
+			print(color.purple + "[!] " + name +" | File already exists!")
 	elif response.status_code == 403:
 		print(color.red + "[✗] " + name +" | (403) Access denied!")
 	elif response.status_code == 404:
@@ -90,27 +91,42 @@ for j in range(len(formats)):
 	elif response.status_code == 408:
 		print(color.red + "[✗] " + name +" | (408) Request time out!")
 	else:
-		print(color.red + "[✗]  " + name +" | (" + str(response.status_code) + ") There's a problem.")
+		print(color.red + "[✗] " + name +" | (" + str(response.status_code) + ") Problem!")
 	count += 1
+		
+
+#Starting inspection and downloading process
+font_name = main_url.split("/")[-1]
+if font_name[-1] == "-" or font_name[-1] == "_" or font_name[-1] == " ":
+	font_name = font_name[:-1]
+if not os.path.exists(font_name):
+	os.makedirs(font_name)
+#Check for font file without any weight name
+start_time = time.time_ns()
+for j in range(len(formats)):
+	if main_url[-1] == "-" or main_url[-1] == "_" or main_url[-1] == " ":
+		url = main_url[:-1] + "." + formats[j]
+	else:
+		url = main_url + "." + formats[j]
+	dl(url)
+#Check for selected weight names
 for i in range(len(weights)):
 	for j in range(len(formats)):
 		url = main_url + weights[i] + "." + formats[j]
-		name = url.split("/")[len(url.split("/")) - 1]
-		response = requests.head(url)
-		if response.status_code == 200:
-			request = requests.get(url, allow_redirects=True)
-			open(font_name + "/" + name, 'wb').write(request.content)
-			print(color.green + "[✓] " + name +" | Downloaded successfully!")
-			count_d += 1
-		elif response.status_code == 403:
-			print(color.red + "[✗] " + name +" | (403) Access denied!")
-		elif response.status_code == 404:
-			print(color.red + "[✗] " + name +" | (404) Not found!")
-		elif response.status_code == 408:
-			print(color.red + "[✗] " + name +" | (408) Request time out!")
-		else:
-			print(color.red + "[✗]  " + name +" | (" + str(response.status_code) + ") There's a problem.")
-		count += 1
+		dl(url)
+end_time = time.time_ns()
+processing_time = round((end_time - start_time) / (10**9), 2)
+pt_min, pt_sec = divmod(processing_time, 60)
+#remove extra empty line in Links.txt file
+with open(font_name + "/" + font_name + "-Links.txt", "r+") as links_file:
+	links_txt = links_file.read().rstrip()
+	links_file.truncate(0)
+	links_file.write(links_txt)
 
-		
-print(color.blue + "[!] Results: Successfully downloaded " + color.green + str(count_d) + " files" + color.blue + ", after inspecting " + str(count) + " files.")
+print(color.yellow + "\n[!] Results:")
+if pt_min == 0:
+	print(color.blue + "[!] Processing time: " + color.yellow + str(pt_sec) + " seconds")
+else:
+	print(color.blue + "[!] Processing time: " + color.yellow + str(pt_min) + " minutes and " + str(pt_sec) + " seconds")
+print(color.blue + "[!] Downloaded: " + color.yellow + str(count_d) + " files")
+print(color.blue + "[!] Inspected: " + color.yellow + str(count) + " files")
