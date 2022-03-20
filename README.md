@@ -1,13 +1,13 @@
 # Font-Downloader
 This is python source code, that helps you to check for all weights of a font which is hosted in a website.
 
-Read the [instructions](/#Instructions), to learn how to use it.
+Read the [instructions](#instructions), to learn how to use it.
 
 ### Screenshot
 ![Screenshot](https://i.ibb.co/hLdwthY/Font-Downloader-screenshot.jpg)
 
 ## Instructions
-1. Install Termux from [here](https://f-droid.org/en/packages/com.termux)
+1. Downloas and install Termux from [here](https://f-droid.org/en/packages/com.termux)
 
 2. Run codes below in Termux:
    ```
@@ -43,3 +43,6 @@ Read the [instructions](/#Instructions), to learn how to use it.
 * [ ] Asking user for weight name place and format place in the url input as `{WEIGHT}` and `{FORMAT}`
 * [ ] Ability to download fonts which are separated by their format into different folders.
 * Give me ideas to make it better :)
+
+## Output
+After the process finishes, there will be a folder in the same directory as the code file, including every font file downloaded. There will also be a text file named `FONTNAME-Links.txt` that includes the link of all downloaded files.
