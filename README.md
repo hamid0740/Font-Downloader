@@ -28,10 +28,10 @@ Read the [instructions](#instructions), to learn how to use it.
 
 4. For the second input, you need to enter the weight names case according to your inspections. If you haven't inspected, enter `all` and it will test everything.
    ```
-   's' for Standard case (81 weight names)
-   'l' for Lower case (49 weight names)
-   'u' for Upper case (49 weight names)
-   'all' for All cases (179 weight names)
+   's' for Standard case (120 weight names)
+   'l' for Lower case (70 weight names)
+   'u' for Upper case (70 weight names)
+   'all' for All cases (260 weight names)
    ```
    You can combine letters for combined cases. like 'lu' to have Lower and Upper cases.
 
@@ -44,5 +44,50 @@ Read the [instructions](#instructions), to learn how to use it.
 * [ ] Ability to download fonts which are separated by their format into different folders.
 * Give me ideas to make it better :)
 
+## Datas
+### Font weight names
+These are by my researches through many font families.
+* Never get anything:
+  ```
+  Hairline
+  Line
+  Book
+  News
+  Demi
+  Regular
+  Normal
+  Text
+  Medium
+  Heavy
+  Mass
+  Fat
+  Poster
+  ```
+* May get Extra, Ultra or Very:
+  ```
+  Thin
+  Light
+  Lite
+  Thick
+  Bold
+  Dark
+  Black
+  ```
+* May get Semi or Demi
+  ```
+  Light
+  Bold
+  ```
+### Formats
+These formats will be inspected by the code.
+```
+ttf
+woff
+woff2
+eot
+svg
+```
+
 ## Output
 After the process finishes, there will be a folder in the same directory as the code file, including every font file downloaded. There will also be a text file named `FONTNAME-Links.txt` that includes the link of all downloaded files.
+There will be another text file named `FONTNAME-Links-All.txt` that contains every inspected link, even if not downloaded. This will help those who want to test the links manually with a download manager.
