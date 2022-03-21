@@ -12,7 +12,7 @@ class color:
 	
 #App info
 print(color.purple + "App name:  " + color.reset + "Font Downloader")
-print(color.purple + "Version:   " + color.reset + "1.4")
+print(color.purple + "Version:   " + color.reset + "1.5")
 print(color.purple + "Developer: " + color.reset + "hamid0740")
 print(color.purple + "GitHub:    " + color.reset + "https://github.com/hamid0740/Font-Downloader" + "\n")
 
@@ -53,8 +53,11 @@ weights_lower = list(dict.fromkeys([w.lower() for w in weights_standard]))
 weights_upper = list(dict.fromkeys([w.upper() for w in weights_standard]))
 formats = ["ttf", "woff", "woff2", "eot", "svg"]
 
-print(color.red + "✗ WRONG: https://example.com/font/Arial-Regular.ttf \n" + color.green + "✓ RIGHT: https://example.com/font/Arial- ")
-main_url = input(color.yellow + "Enter the font file URL without weight name and file format: " + color.reset)
+print(color.green + "If the font file URL is like this: " + color.red + "'https://example.com/fonts/Arial/woff2/Arial-Bold.woff2'" + color.green + ", you need to enter Font Name as " + color.red + "'Arial'" + color.green + ".\n" + "It can be used later as " + color.purple + "{NAME}")
+font_name = input(color.yellow + "Enter the font name: " + color.reset)
+
+print(color.blue + "\nFind a font file url in a website and enter it below. You can use variables below, in the url pattern. Also check the example below.\n" + color.purple + "{NAME}: The font name that you entered above.\n{WEIGHT}: Weight names that will be generated automatically.\n{FORMAT}: Font formats that will be generated automatically.\n" + color.red + "✗ WRONG: https://example.com/fonts/Arial/woff2/Arial-Bold.woff2 \n" + color.green + "✓ RIGHT: https://example.com/fonts/{NAME}/{FORMAT}/{NAME}-{WEIGHT}.{FORMAT} ")
+pattern_url = input(color.yellow + "Enter the font file URL pattern: " + color.reset)
 print(color.purple + "\n's' for Standard case (120 weight names)\n" + "'l' for Lower case (70 weight names)\n" + "'u' for Upper case (70 weight names)\n" + "'all' for All cases (260 weight names)\n" + color.blue + "You can combine letters for combined cases. like 'lu' to have Lower and Upper cases.")
 weights_case = input(color.yellow + "As you've inspected font URLs, how is their weight name case? " + color.reset)
 weights = []
@@ -68,6 +71,7 @@ if "u" in weights_case.lower() and not "all" in weights_case.lower():
 	weights += weights_upper
 if "s" not in weights_case.lower() and "l" not in weights_case.lower() and "u" not in weights_case.lower() and not "all" in weights_case.lower():
 	weights = weights_standard
+print("")
 
 #Download function
 count = 0
@@ -102,30 +106,24 @@ def dl(url):
 		print(color.red + "[✗] " + name +" | (" + str(response.status_code) + ") Problem!")
 	open(font_name + "/" + font_name + "-Links-All.txt", "a").write(url + "\n")
 	count += 1
-		
 
 #Starting inspection and downloading process
-font_name = main_url.split("/")[-1]
-if font_name[-1] in ["-", "_", " "]:
-	font_name = font_name[:-1]
 if not os.path.exists(font_name):
 	os.makedirs(font_name)
 if os.path.exists(font_name + "/" + font_name + "-Links.txt"):
 	open(font_name + "/" + font_name + "-Links.txt", "r+").truncate(0)
 if os.path.exists(font_name + "/" + font_name + "-Links-All.txt"):
 	open(font_name + "/" + font_name + "-Links-All.txt", "r+").truncate(0)
-#Check for font file without any weight name
+#Check for font file without any weight name (as Regular weight)
 start_time = time.time_ns()
 for j in range(len(formats)):
-	if main_url[-1]  in ["-", "_", " "]:
-		url = main_url[:-1] + "." + formats[j]
-	else:
-		url = main_url + "." + formats[j]
+	url = pattern_url.replace("{NAME}", font_name).replace("{WEIGHT}", "").replace("{FORMAT}", formats[j])
+	url = url.replace("-.", ".").replace("_.", ".").replace(" .", ".")
 	dl(url)
 #Check for selected weight names
 for i in range(len(weights)):
 	for j in range(len(formats)):
-		url = main_url + weights[i] + "." + formats[j]
+		url = pattern_url.replace("{NAME}", font_name).replace("{WEIGHT}", weights[i]).replace("{FORMAT}", formats[j])
 		dl(url)
 end_time = time.time_ns()
 processing_time = (end_time - start_time) / (10**9)
