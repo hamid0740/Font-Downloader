@@ -12,7 +12,7 @@ class color:
 	
 #App info
 print(color.purple + "App name:  " + color.reset + "Font Downloader")
-print(color.purple + "Version:   " + color.reset + "1.5")
+print(color.purple + "Version:   " + color.reset + "1.6")
 print(color.purple + "Developer: " + color.reset + "hamid0740")
 print(color.purple + "GitHub:    " + color.reset + "https://github.com/hamid0740/Font-Downloader" + "\n")
 
@@ -76,18 +76,19 @@ print("")
 #Download function
 count = 0
 count_d = 0
+r_headers = { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36", "referer": "https://github.com/hamid0740/Font-Downloader" }
 def dl(url):
 	global count
 	global count_d
 	name = url.split("/")[len(url.split("/")) - 1]
-	response = requests.head(url, allow_redirects = True)
+	response = requests.head(url, allow_redirects = True, headers = r_headers)
 	if not os.path.exists(font_name + "/" + font_name + "-Links.txt"):
 		open(font_name + "/" + font_name + "-Links.txt", "a").write("")
 	if not os.path.exists(font_name + "/" + font_name + "-Links-All.txt"):
 		open(font_name + "/" + font_name + "-Links-All.txt", "a").write("")
-	if response.status_code in range(200, 299) and not response.headers["content-type"] in ["text/html"]:
+	if response.status_code in range(200, 299) and not response.headers.get("content-type") in ["text/html"]:
 		if not url.lower() in open(font_name + "/" + font_name + "-Links.txt").read().lower():
-			request = requests.get(url, allow_redirects = True)
+			request = requests.get(url, allow_redirects = True, headers = r_headers)
 			open(font_name + "/" + name, 'wb').write(request.content)
 			print(color.green + "[✓] " + name +" | Downloaded!")
 			open(font_name + "/" + font_name + "-Links.txt", "a").write(url + "\n")
@@ -100,7 +101,7 @@ def dl(url):
 		print(color.red + "[✗] " + name +" | (404) Not found!")
 	elif response.status_code == 408:
 		print(color.red + "[✗] " + name +" | (408) Request time out!")
-	elif response.headers["content-type"] in ["text/html"]:
+	elif response.headers.get("content-type") in ["text/html"]:
 		print(color.red + "[✗] " + name +" | Returned HTML page!")
 	else:
 		print(color.red + "[✗] " + name +" | (" + str(response.status_code) + ") Problem!")
