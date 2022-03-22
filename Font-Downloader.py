@@ -2,22 +2,22 @@ import requests
 import os
 import time
 from colorama import init, Fore, Back, Style
-os.system('cls')
-init(convert=True)
+os.system("cls" if os.name=="nt" else "clear")
+init()
 
 #App title and info
-print(              "                  " + Fore.CYAN + " ______          _   " + ""          + "                   ")
-print(              "                  " + Fore.CYAN + "|  ____|        | |  " + ""          + "                   ")
-print(Fore.YELLOW + "       Dev:       " + Fore.CYAN + "| |__ ___  _ __ | |_ " + Fore.YELLOW + "     Version:      ")
-print(              "                  " + Fore.CYAN + "|  __/ _ \| '_ \| __|" + ""          + "                   ")
-print(Fore.GREEN  + "     hamid0740    " + Fore.CYAN + "| | | (_) | | | | |_ " + Fore.GREEN  + "       1.8         ")
-print(              "                  " + Fore.CYAN + "|_|  \___/|_| |_|\__|" + ""          + "                   ")
-print(Fore.CYAN   + " _____                      _                 _           ")
-print(Fore.CYAN   + "|  __ \                    | |               | |          ")
-print(Fore.CYAN   + "| |  | | _____      ___ __ | | ___   __ _  __| | ___ _ __ ")
-print(Fore.CYAN   + "| |  | |/ _ \ \ /\ / / '_ \| |/ _ \ / _` |/ _` |/ _ \ '__|")
-print(Fore.CYAN   + "| |__| | (_) \ V  V /| | | | | (_) | (_| | (_| |  __/ |   ")
-print(Fore.CYAN   + "|_____/ \___/ \_/\_/ |_| |_|_|\___/ \__,_|\__,_|\___|_|   ")
+print(               "                  " + Fore.CYAN + " ______          _   " + ""          + "                   ")
+print(               "                  " + Fore.CYAN + "|  ____|        | |  " + ""          + "                   ")
+print(Fore.YELLOW  + "       Dev:       " + Fore.CYAN + "| |__ ___  _ __ | |_ " + Fore.YELLOW + "     Version:      ")
+print(               "                  " + Fore.CYAN + "|  __/ _ \| '_ \| __|" + ""          + "                   ")
+print(Fore.GREEN   + "     hamid0740    " + Fore.CYAN + "| | | (_) | | | | |_ " + Fore.GREEN  + "      1.8.1        ")
+print(               "                  " + Fore.CYAN + "|_|  \___/|_| |_|\__|" + ""          + "                   ")
+print(Fore.CYAN    + " _____                      _                 _           ")
+print(Fore.CYAN    + "|  __ \                    | |               | |          ")
+print(Fore.CYAN    + "| |  | | _____      ___ __ | | ___   __ _  __| | ___ _ __ ")
+print(Fore.CYAN    + "| |  | |/ _ \ \ /\ / / '_ \| |/ _ \ / _` |/ _` |/ _ \ '__|")
+print(Fore.CYAN    + "| |__| | (_) \ V  V /| | | | | (_) | (_| | (_| |  __/ |   ")
+print(Fore.CYAN    + "|_____/ \___/ \_/\_/ |_| |_|_|\___/ \__,_|\__,_|\___|_|   ")
 print(Fore.MAGENTA + "       https://github.com/hamid0740/Font-Downloader       " + "\n")
 
 #Asking inspection speed
