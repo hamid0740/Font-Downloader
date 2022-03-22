@@ -3,16 +3,16 @@
 </div>
 
 - - - -
-# Font Downloader
+# 📥Font Downloader
 This is a python script, that helps you with inspecting and downloading all weights of a font which is hosted on a website.
 
 Read the [instructions](#instructions), to learn how to use it.
 
-### Screenshot
-![Screenshot](https://i.ibb.co/PrKmBvC/Font-Downloader-screenshot.jpg)
+### 📸Screenshot
+![Screenshot](https://i.ibb.co/ww5rLkH/Font-Downloader-screenshot.jpg)
 **Note:** Code is edited during screenshot to make its height smaller.
 
-## Instructions
+## 👣Instructions
 1. Download and install Termux from [here](https://f-droid.org/en/packages/com.termux). You'll also need to have Python language installed and also have `requests` and `colorama` libraries for it. Read [here](https://www.geeksforgeeks.org/how-to-install-requests-in-python-for-windows-linux-mac/) to learn how to install these libraries.
 
 2. Run codes below in Termux:
@@ -53,12 +53,12 @@ Read the [instructions](#instructions), to learn how to use it.
 
 7. Now you're done. Just wait to finish the inspection.
 
-## To-Do list
+## 📝To-Do list
 * [ ] Preventing crashes and show an error message instead. (Maybe later...)
 * Give me ideas to make this script better :)
 
-## Datas
-### Font weight names
+## 🗃Datas
+### ⚖Font weight names
 These are by my researches through many font families.
 * Never get any prefixes:
 
@@ -116,7 +116,7 @@ These are by my researches through many font families.
   Light
   Bold
   ```
-### Formats
+### 📁Formats
 These font formats will be inspected by the code:
 ```
 eot
@@ -127,6 +127,6 @@ woff
 woff2
 ```
 
-## Output
+## 📤Output
 After the process finishes, there will be a folder in the same directory as the code file, including every font file downloaded in separated folders by their font format. There will also be a text file named `FONTNAME-Links.txt` that includes the link of all downloaded files.
 Another text file named `FONTNAME-Links-All.txt` exists, that contains every inspected link, even if not downloaded. This will help those who want to test the links manually using a download manager.
