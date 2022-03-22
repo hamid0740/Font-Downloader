@@ -1,5 +1,5 @@
 # Font Downloader
-This is a python source code, that helps you with inspecting and downloading all weights of a font which is hosted in a website.
+This is a python script, that helps you with inspecting and downloading all weights of a font which is hosted on a website.
 
 Read the [instructions](#instructions), to learn how to use it.
 
@@ -20,7 +20,7 @@ Read the [instructions](#instructions), to learn how to use it.
    python Font-Downloader.py
    ```
 
-3. In the 1st input you need to define at what speed do you want the source code to inspect font weights. Speed `1` is approximately 4 times faster than Speed `2`; as a result it will be less accurate.
+3. In the 1st input you need to define what speed do you want the script to inspect font weights. Speed `1` is approximately 4 times faster than Speed `2`; as a result it will be less accurate.
 
 4. In the 2nd input, you need to enter the font name used in the font file url. If the font file URL is like this: `https://example.com/fonts/Arial/woff2/Arial-Bold.woff2`, you need to enter Font Name as `Arial`.
    It will be used later as `{NAME}`.
@@ -48,13 +48,14 @@ Read the [instructions](#instructions), to learn how to use it.
 
 7. Now you're done. Just wait to finish the inspection.
 
-## To-Do list (Maybe one day...)
-* Give me ideas to make it better :)
+## To-Do list
+* [ ] Preventing crashes and show an error message instead. (Maybe later...)
+* Give me ideas to make this script better :)
 
 ## Datas
 ### Font weight names
 These are by my researches through many font families.
-* Never get anything:
+* Never get any prefixes:
 
   **(Speed 1)**
   ```
@@ -111,15 +112,16 @@ These are by my researches through many font families.
   Bold
   ```
 ### Formats
-These formats will be inspected by the code:
+These font formats will be inspected by the code:
 ```
+eot
+otf (Speed 2)
+svg (Speed 2)
 ttf
 woff
 woff2
-eot
-svg (Speed 2)
 ```
 
 ## Output
-After the process finishes, there will be a folder in the same directory as the code file, including every font file downloaded. There will also be a text file named `FONTNAME-Links.txt` that includes the link of all downloaded files.
+After the process finishes, there will be a folder in the same directory as the code file, including every font file downloaded in separated folders by their font format. There will also be a text file named `FONTNAME-Links.txt` that includes the link of all downloaded files.
 Another text file named `FONTNAME-Links-All.txt` exists, that contains every inspected link, even if not downloaded. This will help those who want to test the links manually using a download manager.
