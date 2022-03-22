@@ -1,3 +1,8 @@
+<div align="center">
+<a href="https://github.com/hamid0740/Font-Downloader/blob/main/README-fa.md"><img title="زبان فارسی" alt="زبان فارسی" src="https://img.shields.io/badge/lang-fa-50d890?labelColor=black&style=for-the-badge&logo=google-translate&logoColor=white"></a>
+</div>
+
+- - - -
 # Font Downloader
 This is a python script, that helps you with inspecting and downloading all weights of a font which is hosted on a website.
 
