@@ -1,4 +1,10 @@
-<div dir=rtl>
+<div align="center">
+<a href="https://github.com/hamid0740/Font-Downloader/blob/main/README.md"><img title="English language" alt="English language" src="https://img.shields.io/badge/lang-en-50d890?labelColor=black&style=for-the-badge&logo=google-translate&logoColor=white"></a>
+</div>
+
+- - - -
+
+<div dir=rtl align="right">
 
 # فونت دانلودر
 این یک اسکریپت پایتون هست که به شما توی کاوش کردن و دانلود همه وزن‌های یک فونت که توی بسایتی میزبانی می‌شن کمک می‌کنه.
@@ -6,7 +12,10 @@
 برای یادگیری استفاده از این اسکریپت، [دستورالعمل](#دستورالعمل) رو بخونید.
 
 ### اسکرین‌شات
+
 ![اسکرین‌شات](https://i.ibb.co/PrKmBvC/Font-Downloader-screenshot.jpg)
+
+
 **نکته:** برای گرفتن اسکرین‌شات، اسکریپت ویرایش شده تا ارتفاع تصویر کمتر بشه.
 
 ## دستورالعمل
