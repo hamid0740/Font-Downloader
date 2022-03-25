@@ -1,12 +1,12 @@
 <div align="center">
-<a href="https://github.com/hamid0740/Font-Downloader/blob/main/README.md"><img title="English language" alt="English language" src="https://img.shields.io/badge/lang-en-50d890?labelColor=black&style=for-the-badge&logo=google-translate&logoColor=white"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/blob/main/README.md"><img alt="English language" src="https://img.shields.io/badge/lang-en-50d890?labelColor=black&style=for-the-badge&logo=google-translate&logoColor=white"></a>
 </div>
 
 - - - -
 
 <div dir=rtl align="right">
 
-# 📥فونت دانلودر
+# 📥فونت دانلودر[![ورژن](https://img.shields.io/github/v/release/hamid0740/Font-Downloader?color=purple&label=Version)](#فونت-دانلودر)
 این یه اسکریپت پایتون هست که به شما توی کاوش کردن و دانلود همه وزن‌های یک فونت که توی وبسایتی میزبانی می‌شن کمک می‌کنه.
 
 برای یادگیری استفاده از این اسکریپت، [دستورالعمل](#دستورالعمل) رو بخونید.
@@ -14,10 +14,10 @@
 **[📥 دانلود ورژن 1.8.1](https://github.com/hamid0740/Font-Downloader/releases/download/v1.8.1/Font-Downloader.py)**
 
 <div align="center">
-<a href="https://github.com/hamid0740/Font-Downloader/releases/download/v1.8.1/Font-Downloader.py"><img title="دانلودها" alt="دانلودها" src="https://img.shields.io/github/downloads/hamid0740/Font-Downloader/total?color=green&label=Downloads&logo=bookmeter&logoColor=green"></a>
-<a href="https://github.com/hamid0740/Font-Downloader/blob/main/LICENSE"><img title="لایسنس" alt="لایسنس" src="https://img.shields.io/github/license/hamid0740/Font-Downloader?color=blue&label=License&logo=quicklook&logoColor=blue"></a>
-<a href="https://github.com/hamid0740/Font-Downloader/stargazers"><img title="ستاره‌ها" alt="ستاره‌ها" src="https://img.shields.io/github/stars/hamid0740/Font-Downloader?color=gold&label=Stars&logo=apachespark&logoColor=gold"></a>
-<a href="https://github.com/hamid0740/Font-Downloader/issues"><img title="اشکالات گزارش‌شده" alt="اشکالات گزارش‌شده" src="https://img.shields.io/github/issues/hamid0740/Font-Downloader?color=orange&label=Issues&logo=openbugbounty&logoColor=orange"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/releases/download/v1.8.1/Font-Downloader.py"><img alt="دانلودها" src="https://img.shields.io/github/downloads/hamid0740/Font-Downloader/total?color=green&label=Downloads&logo=bookmeter&logoColor=green"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/blob/main/LICENSE"><img alt="لایسنس" src="https://img.shields.io/github/license/hamid0740/Font-Downloader?color=blue&label=License&logo=quicklook&logoColor=blue"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/stargazers"><img alt="ستاره‌ها" src="https://img.shields.io/github/stars/hamid0740/Font-Downloader?color=gold&label=Stars&logo=apachespark&logoColor=gold"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/issues"><img alt="اشکالات گزارش‌شده" src="https://img.shields.io/github/issues/hamid0740/Font-Downloader?color=orange&label=Issues&logo=openbugbounty&logoColor=orange"></a>
 </div>
 
 ### 📸اسکرین‌شات
@@ -68,10 +68,6 @@
    شما می‌تونید حروف رو ترکیب کنید تا کوچک بزرگی ترکیبی داشته باشید. مثلاً با وارد کردن `lu` می‌تونید هم حروف کوچک و هم حروف بزرگ رو برای کاوش کردن انتخاب کنید.
 
 7. الآن کار شما تموم شده. فقط تا پایان کاوش صبر کنید.
-
-## 📝لیست برای-انجام
-* [ ] جلوگیری از کرش شدن اسکریپت و نمایش دادن خطا بجاش (شاید یه روزی...)
-* به من ایده بدید تا این اسکریپت رو کامل و بهترش کنم :)
 
 ## 🗃داده‌ها
 ### ⚖اسامی وزن فونت
@@ -142,6 +138,11 @@ ttf
 woff
 woff2
 ```
+
+## 📝لیست برای-انجام
+* [ ] استفاده از لینک مستقیم فایل فونت برای کاوش
+* [ ] جلوگیری از کرش شدن اسکریپت و نمایش دادن خطا بجاش (شاید یه روزی...)
+* به من ایده بدید تا این اسکریپت رو کامل و بهترش کنم :)
 
 ## 📤خروجی
 وقتی پروسه کامل بشه، یه فولدر در جایی که فایل کد قرار داره ساخته می‌شه که شامل همه فونت‌های دانلود شده هست، تفکیک‌شده بر اساس فرمتشون. توی این فولدر یک فایل text هم به نام `FONTNAME-Links.txt` ساخته میشه که لینک همه فونت‌های دانلود شده رو داره.
