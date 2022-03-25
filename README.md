@@ -1,10 +1,10 @@
 <div align="center">
-<a href="https://github.com/hamid0740/Font-Downloader/blob/main/README-fa.md"><img title="زبان فارسی" alt="زبان فارسی" src="https://img.shields.io/badge/lang-fa-50d890?labelColor=black&style=for-the-badge&logo=google-translate&logoColor=white"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/blob/main/README-fa.md"><img alt="زبان فارسی" src="https://img.shields.io/badge/lang-fa-50d890?labelColor=black&style=for-the-badge&logo=google-translate&logoColor=white"></a>
 <br/>
 </div>
 
 - - - -
-# 📥Font Downloader
+# 📥Font Downloader[![Version](https://img.shields.io/github/v/release/hamid0740/Font-Downloader?color=purple&label=Version)](#font-downloader)
 This is a python script, that helps you with inspecting and downloading all weights of a font which is hosted on a website.
 
 Read the [instructions](#instructions), to learn how to use it.
@@ -12,10 +12,10 @@ Read the [instructions](#instructions), to learn how to use it.
 **[📥 Download v1.8.1](https://github.com/hamid0740/Font-Downloader/releases/download/v1.8.1/Font-Downloader.py)**
 
 <div align="center">
-<a href="https://github.com/hamid0740/Font-Downloader/releases/download/v1.8.1/Font-Downloader.py"><img title="Downloads" alt="Downloads" src="https://img.shields.io/github/downloads/hamid0740/Font-Downloader/total?color=green&label=Downloads&logo=bookmeter&logoColor=green"></a>
-<a href="https://github.com/hamid0740/Font-Downloader/blob/main/LICENSE"><img title="License" alt="License" src="https://img.shields.io/github/license/hamid0740/Font-Downloader?color=blue&label=License&logo=quicklook&logoColor=blue"></a>
-<a href="https://github.com/hamid0740/Font-Downloader/stargazers"><img title="Stars" alt="Stars" src="https://img.shields.io/github/stars/hamid0740/Font-Downloader?color=gold&label=Stars&logo=apachespark&logoColor=gold"></a>
-<a href="https://github.com/hamid0740/Font-Downloader/issues"><img title="Issues" alt="Issues" src="https://img.shields.io/github/issues/hamid0740/Font-Downloader?color=orange&label=Issues&logo=openbugbounty&logoColor=orange"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/releases/download/v1.8.1/Font-Downloader.py"><img alt="Downloads" src="https://img.shields.io/github/downloads/hamid0740/Font-Downloader/total?color=green&label=Downloads&logo=bookmeter&logoColor=green"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/hamid0740/Font-Downloader?color=blue&label=License&logo=quicklook&logoColor=blue"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/hamid0740/Font-Downloader?color=gold&label=Stars&logo=apachespark&logoColor=gold"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/issues"><img alt="Issues" src="https://img.shields.io/github/issues/hamid0740/Font-Downloader?color=orange&label=Issues&logo=openbugbounty&logoColor=orange"></a>
 </div>
 
 ### 📸Screenshot
@@ -62,10 +62,6 @@ Read the [instructions](#instructions), to learn how to use it.
    You can combine letters for combined cases. like 'lu' to have Lower and Upper cases.
 
 7. Now you're done. Just wait to finish the inspection.
-
-## 📝To-Do list
-* [ ] Preventing crashes and show an error message instead. (Maybe later...)
-* Give me ideas to make this script better :)
 
 ## 🗃Datas
 ### ⚖Font weight names
@@ -136,6 +132,11 @@ ttf
 woff
 woff2
 ```
+
+## 📝To-Do list
+* [ ] Using direct URL of font file to inspect
+* [ ] Preventing crashes and show an error message instead. (Maybe later...)
+* Give me ideas to make this script better :)
 
 ## 📤Output
 After the process finishes, there will be a folder in the same directory as the code file, including every font file downloaded in separated folders by their font format. There will also be a text file named `FONTNAME-Links.txt` that includes the link of all downloaded files.
