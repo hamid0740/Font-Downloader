@@ -1,5 +1,6 @@
 <div align="center">
 <a href="https://github.com/hamid0740/Font-Downloader/blob/main/README-fa.md"><img title="زبان فارسی" alt="زبان فارسی" src="https://img.shields.io/badge/lang-fa-50d890?labelColor=black&style=for-the-badge&logo=google-translate&logoColor=white"></a>
+<br/>
 </div>
 
 - - - -
@@ -7,6 +8,15 @@
 This is a python script, that helps you with inspecting and downloading all weights of a font which is hosted on a website.
 
 Read the [instructions](#instructions), to learn how to use it.
+
+**[📥 Download v1.8.1](https://github.com/hamid0740/Font-Downloader/releases/download/v1.8.1/Font-Downloader.py)**
+
+<div align="center">
+<a href="https://github.com/hamid0740/Font-Downloader/releases/download/v1.8.1/Font-Downloader.py"><img title="Downloads" alt="Downloads" src="https://img.shields.io/github/downloads/hamid0740/Font-Downloader/total?color=green&label=Downloads&logo=bookmeter&logoColor=green"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/blob/main/LICENSE"><img title="License" alt="License" src="https://img.shields.io/github/license/hamid0740/Font-Downloader?color=blue&label=License&logo=quicklook&logoColor=blue"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/stargazers"><img title="Stars" alt="Stars" src="https://img.shields.io/github/stars/hamid0740/Font-Downloader?color=gold&label=Stars&logo=apachespark&logoColor=gold"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/issues"><img title="Issues" alt="Issues" src="https://img.shields.io/github/issues/hamid0740/Font-Downloader?color=orange&label=Issues&logo=openbugbounty&logoColor=orange"></a>
+</div>
 
 ### 📸Screenshot
 ![Screenshot](https://i.ibb.co/ww5rLkH/Font-Downloader-screenshot.jpg)
