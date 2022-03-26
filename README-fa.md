@@ -11,10 +11,10 @@
 
 برای یادگیری استفاده از این اسکریپت، [دستورالعمل](#دستورالعمل) رو بخونید.
 
-**[📥 دانلود ورژن 1.8.1](https://github.com/hamid0740/Font-Downloader/releases/download/v1.8.1/Font-Downloader.py)**
+**[📥 دانلود ورژن 1.9](https://github.com/hamid0740/Font-Downloader/releases/download/v1.9/Font-Downloader.py)**
 
 <div align="center">
-<a href="https://github.com/hamid0740/Font-Downloader/releases/download/v1.8.1/Font-Downloader.py"><img alt="دانلودها" src="https://img.shields.io/github/downloads/hamid0740/Font-Downloader/total?color=green&label=Downloads&logo=bookmeter&logoColor=green"></a>
+<a href="https://github.com/hamid0740/Font-Downloader/releases/download/v1.9/Font-Downloader.py"><img alt="دانلودها" src="https://img.shields.io/github/downloads/hamid0740/Font-Downloader/total?color=green&label=Downloads&logo=bookmeter&logoColor=green"></a>
 <a href="https://github.com/hamid0740/Font-Downloader/blob/main/LICENSE"><img alt="لایسنس" src="https://img.shields.io/github/license/hamid0740/Font-Downloader?color=blue&label=License&logo=quicklook&logoColor=blue"></a>
 <a href="https://github.com/hamid0740/Font-Downloader/stargazers"><img alt="ستاره‌ها" src="https://img.shields.io/github/stars/hamid0740/Font-Downloader?color=gold&label=Stars&logo=apachespark&logoColor=gold"></a>
 <a href="https://github.com/hamid0740/Font-Downloader/issues"><img alt="اشکالات گزارش‌شده" src="https://img.shields.io/github/issues/hamid0740/Font-Downloader?color=orange&label=Issues&logo=openbugbounty&logoColor=orange"></a>
@@ -22,8 +22,7 @@
 
 ### 📸اسکرین‌شات
 
-![اسکرین‌شات](https://i.ibb.co/ww5rLkH/Font-Downloader-screenshot.jpg)
-
+![اسکرین‌شات](https://i.ibb.co/dMnrTvG/Font-Downloader-screenshot.jpg)
 
 **نکته:** برای گرفتن اسکرین‌شات، اسکریپت ویرایش شده تا ارتفاع تصویر کمتر بشه.
 
@@ -42,20 +41,17 @@
 
 3. در اولین ورودی باید مشخص کنید که اسکریپت با چه سرعتی وزن‌های فونت رو کاوش کنه. سرعت `1` تقریباً ۴ برابر سریع‌تر از سرعت `2` هست؛ در نتیجه دقتش کمتر میشه.
 
-4. در دومین ورودی باید اسم فونتی که توی URL فایل فونت استفاده شده رو مشخص کنید. اگه URL فایل فونت به این شکل باشه: `https://example.com/fonts/Arial/woff2/Arial-Bold.woff2`، شما باید نام فونت را بصورت `Arial` وارد کنید.
-این اسم بعداً به عنوان `{NAME}` استفاده میشه.
+4. در دومین ورودی باید اسم فونتی که قراره سیو بشه رو وارد کنید.
 
-
-5. در سومین ورودی باید URL الگوی فایل فونت رو وارد کنید. یه لینک فایل فونت رو توی وبسایتی پیدا کنید و بعضی از مقادیر اون رو با متغیرهای زیر جایگزین کنید.
+5. در سومین ورودی باید باید لینک مستقیم یا الگوی فایل فونت رو وارد کنید. یه فایل فونت رو توی وبسایتی پیدا کنید و لینکش رو اونجا وارد کنید. می‌تونید از این متغیرها استفاده‌ کنید تا لینک الگو رو خودتون بسازید.
    ```
-   {NAME}: The font name that you've entered before.
-   {WEIGHT}: Weight names that will be generated automatically.
-   {FORMAT}: Font formats that will be generated automatically.
+   {WEIGHT}: Thin, Regular, Bold ...
+   {FORMAT}: eot, ttf, woff2 ...
    ```
    مثال:
    ```
-   ✗ WRONG: https://example.com/fonts/Arial/woff2/Arial-Bold.woff2
-   ✓ RIGHT: https://example.com/fonts/{NAME}/{FORMAT}/{NAME}-{WEIGHT}.{FORMAT}
+   Direct: https://example.com/fonts/Arial/woff2/Arial-Bold.woff2
+   Pattern: https://example.com/fonts/Arial/{FORMAT}/Arial-{WEIGHT}.{FORMAT}
    ```
 
 6. برای چهارمین ورودی باید کوچک یا بزرگی حروف اسم وزن‌ها را با توجه به بررسی‌های خودتون توی لینک فونت‌ها مشخص کنید. اگه تا حالا بررسی انجام ندادید، `all` رو وارد کنید تا همه چیز تست بشه.
@@ -140,7 +136,6 @@ woff2
 ```
 
 ## 📝لیست برای-انجام
-* [ ] استفاده از لینک مستقیم فایل فونت برای کاوش
 * [ ] جلوگیری از کرش شدن اسکریپت و نمایش دادن خطا بجاش (شاید یه روزی...)
 * به من ایده بدید تا این اسکریپت رو کامل و بهترش کنم :)
 
