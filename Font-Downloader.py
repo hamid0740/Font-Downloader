@@ -6,19 +6,15 @@ os.system("cls" if os.name=="nt" else "clear")
 init()
 
 #App title and info
-print(               "                  " + Fore.CYAN + " ______          _   " + ""          + "                   ")
-print(               "                  " + Fore.CYAN + "|  ____|        | |  " + ""          + "                   ")
-print(Fore.YELLOW  + "       Dev:       " + Fore.CYAN + "| |__ ___  _ __ | |_ " + Fore.YELLOW + "     Version:      ")
-print(               "                  " + Fore.CYAN + "|  __/ _ \| '_ \| __|" + ""          + "                   ")
-print(Fore.GREEN   + "     hamid0740    " + Fore.CYAN + "| | | (_) | | | | |_ " + Fore.GREEN  + "      1.8.1        ")
-print(               "                  " + Fore.CYAN + "|_|  \___/|_| |_|\__|" + ""          + "                   ")
-print(Fore.CYAN    + " _____                      _                 _           ")
-print(Fore.CYAN    + "|  __ \                    | |               | |          ")
-print(Fore.CYAN    + "| |  | | _____      ___ __ | | ___   __ _  __| | ___ _ __ ")
-print(Fore.CYAN    + "| |  | |/ _ \ \ /\ / / '_ \| |/ _ \ / _` |/ _` |/ _ \ '__|")
-print(Fore.CYAN    + "| |__| | (_) \ V  V /| | | | | (_) | (_| | (_| |  __/ |   ")
-print(Fore.CYAN    + "|_____/ \___/ \_/\_/ |_| |_|_|\___/ \__,_|\__,_|\___|_|   ")
-print(Fore.MAGENTA + "       https://github.com/hamid0740/Font-Downloader       " + "\n")
+print(               "               " + Fore.CYAN + " ___        _   " + ""          + "                ")
+print(Fore.YELLOW  + "     Dev:      " + Fore.CYAN + "| __|__ _ _| |_ " + Fore.YELLOW + "    Version:    ")
+print(Fore.GREEN   + "   hamid0740   " + Fore.CYAN + "| _/ _ \ ' \  _|" + Fore.GREEN  + "      1.9       ")
+print(               "               " + Fore.CYAN + "|_|\___/_||_\__|" + ""          + "                ")
+print(Fore.CYAN    + " ___                  _              _         ")
+print(Fore.CYAN    + "|   \ _____ __ ___ _ | |___  __ _ __| |___ _ _ ")
+print(Fore.CYAN    + "| |) / _ \ V  V / ' \| / _ \/ _` / _` / -_) '_|")
+print(Fore.CYAN    + "|___/\___/\_/\_/|_||_|_\___/\__,_\__,_\___|_|  ")
+print(Fore.MAGENTA + "  https://github.com/hamid0740/Font-Downloader " + "\n")
 
 #Asking inspection speed
 speed_codes = ["2"]
@@ -29,17 +25,10 @@ speed = input()
 #Defining temporary variables for weight names
 ##Weight names that don't ever get Extra, Ultra, Very, Semi or Demi
 weights1 = ["Hairline", "Line", "Book", "News", "Demi", "Regular", "Normal", "Text", "Medium", "Heavy", "Mass", "Fat", "Poster"]
-if not speed in speed_codes:
-	weights1 = [e for e in weights1 if e not in ["Line", "Book", "News", "Demi", "Normal", "Text", "Mass", "Poster"]]
-	weights1.extend(["Thin"])
 ##Weight names that may get Extra, Ultra or Very
 weights2 = ["Thin", "Light", "Lite", "Thick", "Bold", "Dark", "Black"]
-if not speed in speed_codes:
-	weights2 = [e for e in weights2 if e not in ["Thin", "Lite", "Thick", "Dark"]]
 ##Weight names that may get Semi or Demi
 weights3 = ["Light", "Bold"]
-if not speed in speed_codes:
-	weights3 = [e for e in weights3 if e not in ["Light"]]
 #Creating temporary weight names that may get Extra, Ultra or Very
 weights2_temp = []
 for i in range(len(weights2)):
@@ -48,16 +37,14 @@ for i in range(len(weights2)):
 	weights2_temp.append("Extra" + weights2[i].lower())
 	weights2_temp.append("Ultra" + weights2[i])
 	weights2_temp.append("Ultra" + weights2[i].lower())
-	##Speed code 2
-	if speed == "2":
-		weights2_temp.append("Extra-" + weights2[i])
-		weights2_temp.append("Extra-" + weights2[i].lower())
-		weights2_temp.append("Ultra-" + weights2[i])
-		weights2_temp.append("Ultra-" + weights2[i].lower())
-		weights2_temp.append("Very" + weights2[i])
-		weights2_temp.append("Very" + weights2[i].lower())
-		weights2_temp.append("Very-" + weights2[i])
-		weights2_temp.append("Very-" + weights2[i].lower())
+	weights2_temp.append("Extra-" + weights2[i])
+	weights2_temp.append("Extra-" + weights2[i].lower())
+	weights2_temp.append("Ultra-" + weights2[i])
+	weights2_temp.append("Ultra-" + weights2[i].lower())
+	weights2_temp.append("Very" + weights2[i])
+	weights2_temp.append("Very" + weights2[i].lower())
+	weights2_temp.append("Very-" + weights2[i])
+	weights2_temp.append("Very-" + weights2[i].lower())
 #Creating temp weight names that may get Semi or Demi
 weights3_temp = []
 for i in range(len(weights3)):
@@ -66,32 +53,63 @@ for i in range(len(weights3)):
 	weights3_temp.append("Semi" + weights3[i].lower())
 	weights3_temp.append("Demi" + weights3[i])
 	weights3_temp.append("Demi" + weights3[i].lower())
-	##Speed code 2
-	if speed == "2":
-		weights3_temp.append("Semi-" + weights3[i])
-		weights3_temp.append("Semi-" + weights3[i].lower())
-		weights3_temp.append("Demi-" + weights3[i])
-		weights3_temp.append("Demi-" + weights3[i].lower())
+	weights3_temp.append("Semi-" + weights3[i])
+	weights3_temp.append("Semi-" + weights3[i].lower())
+	weights3_temp.append("Demi-" + weights3[i])
+	weights3_temp.append("Demi-" + weights3[i].lower())
+
+#Defining font formats
+formats = ["eot", "otf", "svg", "ttf", "woff", "woff2"]
+
+#Asking font name
+print(Fore.GREEN + "\nThis name will be used to save font files as.")
+print(Fore.YELLOW + "Enter the font name:" + Style.RESET_ALL, end = " ")
+font_name = input()
+
+#Asking font file URL
+print(Fore.CYAN + "\nFind a font file URL in a website and enter it below. You may use these variables to create the URL pattern yourself.\n" + Fore.MAGENTA + "{WEIGHT}: Thin, Regular, Bold ...\n{FORMAT}: eot, ttf, woff2 ...\n" + Fore.RED + "Direct: " + Fore.GREEN + "https://example.com/fonts/Arial/woff2/Arial-Bold.woff2\n" + Fore.RED + "Pattern: " + Fore.GREEN + "https://example.com/fonts/Arial/{FORMAT}/Arial-{WEIGHT}.{FORMAT}")
+print(Fore.YELLOW + "Enter the font file Direct or Pattern URL:" + Style.RESET_ALL, end = " ")
+pattern_url = input()
+
+#Creating pattern URL
+for i in range(len(weights1)):
+	pattern_url = pattern_url.replace(weights1[i], "{WEIGHT}")
+for i in range(len(weights2)):
+	pattern_url = pattern_url.replace(weights2[i], "{WEIGHT}")
+for i in range(len(weights3)):
+	pattern_url = pattern_url.replace(weights3[i], "{WEIGHT}")
+frmts_rplc = ["eot", "otf", "svg", "ttf", "woff2", "woff"]
+for i in range(len(frmts_rplc)):
+	pattern_url = pattern_url.replace(frmts_rplc[i], "{FORMAT}")
+
+#Applying speed code
+if not speed in speed_codes:
+	weights1 = [e for e in weights1 if e not in ["Line", "Book", "News", "Demi", "Normal", "Text", "Mass", "Poster"]]
+	#weights1.extend(["Thin"])
+	weights2 = [e for e in weights2 if e not in ["Thin", "Lite", "Thick", "Dark"]]
+	weights3 = [e for e in weights3 if e not in ["Light"]]
+	formats = [e for e in formats if e not in ["otf", "svg"]]
+for i in range(len(weights2)):
+	if not speed in speed_codes:
+		weights2_temp.remove("Extra-" + weights2[i])
+		weights2_temp.remove("Extra-" + weights2[i].lower())
+		weights2_temp.remove("Ultra-" + weights2[i])
+		weights2_temp.remove("Ultra-" + weights2[i].lower())
+		weights2_temp.remove("Very" + weights2[i])
+		weights2_temp.remove("Very" + weights2[i].lower())
+		weights2_temp.remove("Very-" + weights2[i])
+		weights2_temp.remove("Very-" + weights2[i].lower())
+for i in range(len(weights3)):
+	if not speed in speed_codes:
+		weights3_temp.remove("Semi-" + weights3[i])
+		weights3_temp.remove("Semi-" + weights3[i].lower())
+		weights3_temp.remove("Demi-" + weights3[i])
+		weights3_temp.remove("Demi-" + weights3[i].lower())
 
 #Defining final weight names
 weights_standard = list(dict.fromkeys(weights1 + weights2_temp + weights3_temp))
 weights_lower = list(dict.fromkeys([w.lower() for w in weights_standard]))
 weights_upper = list(dict.fromkeys([w.upper() for w in weights_standard]))
-
-#Defining font formats
-formats = ["eot", "otf", "svg", "ttf", "woff", "woff2"]
-if not speed in speed_codes:
-	formats = [e for e in formats if e not in ["otf", "svg"]]
-
-#Asking font name {NAME}
-print(Fore.GREEN + "\nIf the font file URL is like this: " + Fore.RED + "'https://example.com/fonts/Arial/woff2/Arial-Bold.woff2'" + Fore.GREEN + ", you need to enter Font Name as " + Fore.RED + "'Arial'" + Fore.GREEN + ".\n" + "It can be used later as " + Fore.MAGENTA + "{NAME}")
-print(Fore.YELLOW + "Enter the font name:" + Style.RESET_ALL, end = " ")
-font_name = input()
-
-#Asking font file URL pattern
-print(Fore.CYAN + "\nFind a font file url in a website and enter it below. You can use variables below, in the url pattern. Also check the example below.\n" + Fore.MAGENTA + "{NAME}: The font name that you entered above.\n{WEIGHT}: Weight names that will be generated automatically.\n{FORMAT}: Font formats that will be generated automatically.\n" + Fore.RED + "X WRONG: https://example.com/fonts/Arial/woff2/Arial-Bold.woff2 \n" + Fore.GREEN + "✓ RIGHT: https://example.com/fonts/{NAME}/{FORMAT}/{NAME}-{WEIGHT}.{FORMAT} ")
-print(Fore.YELLOW + "Enter the font file URL pattern:" + Style.RESET_ALL, end = " ")
-pattern_url = input()
 
 #Asking weight names case
 print(Fore.MAGENTA + "\n's' for Standard case (" + str(len(weights_standard)) + " weight names)\n" + "'l' for Lower case (" + str(len(weights_lower)) + " weight names)\n" + "'u' for Upper case (" + str(len(weights_upper)) + " weight names)\n" + "'all' for All cases (" + str(len(weights_standard) + len(weights_lower) + len(weights_upper)) + " weight names)\n" + Fore.CYAN + "You can combine letters for combined cases. like 'lu' to have Lower and Upper cases.")
@@ -116,13 +134,13 @@ if not os.path.exists(font_name):
 links = []
 links_format = []
 for j in range(len(formats)):
-	url = pattern_url.replace("{NAME}", font_name).replace("{WEIGHT}", "").replace("{FORMAT}", formats[j])
+	url = pattern_url.replace("{WEIGHT}", "").replace("{FORMAT}", formats[j])
 	url = url.replace("-." + formats[j], "." + formats[j]).replace("_." + formats[j], "." + formats[j]).replace(" ." + formats[j], "." + formats[j])
 	links.append(url)
 	links_format.append(formats[j])
 for i in range(len(weights)):
 	for j in range(len(formats)):
-		url = pattern_url.replace("{NAME}", font_name).replace("{WEIGHT}", weights[i]).replace("{FORMAT}", formats[j])
+		url = pattern_url.replace("{WEIGHT}", weights[i]).replace("{FORMAT}", formats[j])
 		links.append(url)
 		links_format.append(formats[j])
 ##Writing links in Links-All.txt
