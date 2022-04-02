@@ -8,7 +8,7 @@ init()
 #App title and info
 print(               "               " + Fore.CYAN + " ___        _   " + ""          + "                ")
 print(Fore.YELLOW  + "     Dev:      " + Fore.CYAN + "| __|__ _ _| |_ " + Fore.YELLOW + "    Version:    ")
-print(Fore.GREEN   + "   hamid0740   " + Fore.CYAN + "| _/ _ \ ' \  _|" + Fore.GREEN  + "      1.9       ")
+print(Fore.GREEN   + "   hamid0740   " + Fore.CYAN + "| _/ _ \ ' \  _|" + Fore.GREEN  + "   1.9.1 Beta   ")
 print(               "               " + Fore.CYAN + "|_|\___/_||_\__|" + ""          + "                ")
 print(Fore.CYAN    + " ___                  _              _         ")
 print(Fore.CYAN    + "|   \ _____ __ ___ _ | |___  __ _ __| |___ _ _ ")
@@ -29,34 +29,38 @@ weights1 = ["Hairline", "Line", "Book", "News", "Demi", "Regular", "Normal", "Te
 weights2 = ["Thin", "Light", "Lite", "Thick", "Bold", "Dark", "Black"]
 ##Weight names that may get Semi or Demi
 weights3 = ["Light", "Bold"]
-#Creating temporary weight names that may get Extra, Ultra or Very
-weights2_temp = []
-for i in range(len(weights2)):
-	weights2_temp.append(weights2[i])
-	weights2_temp.append("Extra" + weights2[i])
-	weights2_temp.append("Extra" + weights2[i].lower())
-	weights2_temp.append("Ultra" + weights2[i])
-	weights2_temp.append("Ultra" + weights2[i].lower())
-	weights2_temp.append("Extra-" + weights2[i])
-	weights2_temp.append("Extra-" + weights2[i].lower())
-	weights2_temp.append("Ultra-" + weights2[i])
-	weights2_temp.append("Ultra-" + weights2[i].lower())
-	weights2_temp.append("Very" + weights2[i])
-	weights2_temp.append("Very" + weights2[i].lower())
-	weights2_temp.append("Very-" + weights2[i])
-	weights2_temp.append("Very-" + weights2[i].lower())
-#Creating temp weight names that may get Semi or Demi
-weights3_temp = []
-for i in range(len(weights3)):
-	weights3_temp.append(weights3[i])
-	weights3_temp.append("Semi" + weights3[i])
-	weights3_temp.append("Semi" + weights3[i].lower())
-	weights3_temp.append("Demi" + weights3[i])
-	weights3_temp.append("Demi" + weights3[i].lower())
-	weights3_temp.append("Semi-" + weights3[i])
-	weights3_temp.append("Semi-" + weights3[i].lower())
-	weights3_temp.append("Demi-" + weights3[i])
-	weights3_temp.append("Demi-" + weights3[i].lower())
+def crt_tmp_wgts():
+	global weights2_temp
+	global weights3_temp
+	#Creating temporary weight names that may get Extra, Ultra or Very
+	weights2_temp = []
+	for i in range(len(weights2)):
+		weights2_temp.append(weights2[i])
+		weights2_temp.append("Extra" + weights2[i])
+		weights2_temp.append("Extra" + weights2[i].lower())
+		weights2_temp.append("Ultra" + weights2[i])
+		weights2_temp.append("Ultra" + weights2[i].lower())
+		weights2_temp.append("Extra-" + weights2[i])
+		weights2_temp.append("Extra-" + weights2[i].lower())
+		weights2_temp.append("Ultra-" + weights2[i])
+		weights2_temp.append("Ultra-" + weights2[i].lower())
+		weights2_temp.append("Very" + weights2[i])
+		weights2_temp.append("Very" + weights2[i].lower())
+		weights2_temp.append("Very-" + weights2[i])
+		weights2_temp.append("Very-" + weights2[i].lower())
+	#Creating temp weight names that may get Semi or Demi
+	weights3_temp = []
+	for i in range(len(weights3)):
+		weights3_temp.append(weights3[i])
+		weights3_temp.append("Semi" + weights3[i])
+		weights3_temp.append("Semi" + weights3[i].lower())
+		weights3_temp.append("Demi" + weights3[i])
+		weights3_temp.append("Demi" + weights3[i].lower())
+		weights3_temp.append("Semi-" + weights3[i])
+		weights3_temp.append("Semi-" + weights3[i].lower())
+		weights3_temp.append("Demi-" + weights3[i])
+		weights3_temp.append("Demi-" + weights3[i].lower())
+crt_tmp_wgts()
 
 #Defining font formats
 formats = ["eot", "otf", "svg", "ttf", "woff", "woff2"]
@@ -71,6 +75,10 @@ print(Fore.CYAN + "\nFind a font file URL in a website and enter it below. You m
 print(Fore.YELLOW + "Enter the font file Direct or Pattern URL:" + Style.RESET_ALL, end = " ")
 pattern_url = input()
 
+####To do (for v2.0)
+####Fixing weight name on any case
+####Now "LiGhT" won't be renamed with "{WEIGHT}"
+
 #Creating pattern URL
 for i in range(len(weights1)):
 	pattern_url = pattern_url.replace(weights1[i], "{WEIGHT}")
@@ -82,13 +90,18 @@ frmts_rplc = ["eot", "otf", "svg", "ttf", "woff2", "woff"]
 for i in range(len(frmts_rplc)):
 	pattern_url = pattern_url.replace(frmts_rplc[i], "{FORMAT}")
 
+####To do (for v1.9.2)
+####Delete def crt_tmp_wgts()
+####Make for loop for weights2_temp and if "Very" in that item, pop that item
+
 #Applying speed code
 if not speed in speed_codes:
 	weights1 = [e for e in weights1 if e not in ["Line", "Book", "News", "Demi", "Normal", "Text", "Mass", "Poster"]]
-	#weights1.extend(["Thin"])
+	weights1.append("Thin")
 	weights2 = [e for e in weights2 if e not in ["Thin", "Lite", "Thick", "Dark"]]
 	weights3 = [e for e in weights3 if e not in ["Light"]]
 	formats = [e for e in formats if e not in ["otf", "svg"]]
+	crt_tmp_wgts()
 for i in range(len(weights2)):
 	if not speed in speed_codes:
 		weights2_temp.remove("Extra-" + weights2[i])
